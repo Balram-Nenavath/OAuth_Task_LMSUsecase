@@ -1,0 +1,18 @@
+1. When a Spring Boot application starts, a login page will be displayed when you access a this URL.
+
+URL :
+http://localhost:2023/oauth/authorize?
+  response_type=code
+  &client_id=ram2910
+  &redirect_uri=http://localhost:2023/oauth/login
+  &scope=user_info
+  
+2. You need to fill in the login details on the page. ( balram/balram1998 for USER & admin/balram1998 for ADMIN)
+3. After successful login, an approve/deny page will appear.
+4. On this page, you will receive a code. This code is then used to make a request to the `http://localhost:2023/oauth/token` endpoint internally.
+5. After clicking on "approve" on the approve/deny page, an authorization token will be generated.
+6. The authorization token will be in JSON format and will contain an access token and other relevant details.
+7. You need to copy the access token from the JSON response.
+8. Paste the access token as a bearer token in the API call endpoint.("http://localhost:2023/employees/getAll") in postman.
+9. If the API call is made with the correct details and the valid access token, the desired information will be displayed.
+10. However, if the access token is missing, incorrect, or expired, a "403 Forbidden" error will be returned, denying access to the requested information.
